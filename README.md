@@ -1,9 +1,18 @@
 Description
 ===========
 
-Sputnik profiles are json data-bag items.
+This is a base cookbook for applying developer profiles and
+repositiories onto a Ubuntu 12.04 system.
 
-They should go in the data_bags/profiles directory consist of:
+Sputnik developer profiles are json data-bag items which are usually
+part of a developer dna repository.
+
+Developer dna repositories are basically chef-repos set up for
+chef-solo.
+
+
+Developer profiles should go in the data_bags/profiles directory of
+your sputnik-dna chef-repo and consist of:
 
 * An id
 * A list of package to install.
@@ -39,6 +48,8 @@ https://help.ubuntu.com/community/MetaPackages
 
 
 
+
+
 Sputnik profiles are usually applied by looking at the DNA of a Cosmonaut.
 
 Cosmonaut DNA can be as simple as json file with list of sputnik profiles to apply.
@@ -48,15 +59,16 @@ They can go in the dna directory and also consist of:
 * An optional run_list, which if present, must at least include the sputnick recipe 
 * An optional sputnik_repo url, which points to a valid sputnik repo (git, etc)
 
-dna/hh.json:
+dna/my-dna.json:
 
 ```json
 
 {
-    "run_list": [ "recipe[sputnik]" ],
     "sputnik_profiles" : {
-        "rails+sublime"
-    }
+        "rails+sublime",
+        "rails+emacs"
+    },
+    "run_list": [ "recipe[sputnik]" ],
     "sputnik_repo" : {
         "git@github.com/hh/sputnik.git"
     }
@@ -106,9 +118,12 @@ Usage
 
 If hh.json doesn't include a run_list, override and force the sputnik::default recipe:
 
-chef-solo -c config/sputnik.rb -j dna/hh.json -o sputnik
+```
+chef-solo -c config/sputnik.rb -j dna/my-dna.json -o sputnik
+```
 
 Otherwise use the included run_list, hoping it includes sputnik:
 
-chef-solo -c config/sputnik.rb -j dna/hh.json 
-
+```
+chef-solo -c config/sputnik.rb -j dna/my-dna.json 
+```
