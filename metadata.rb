@@ -4,4 +4,8 @@ license          ""
 description      "Sputnik profile tool cookbook"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.1"
-depends          "apt", "metapackage"
+
+%w{apt metapackage}.each do |cb|
+  depends cb
+end
+
