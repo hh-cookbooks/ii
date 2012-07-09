@@ -87,19 +87,19 @@ The attributes can/will be extended with support for
 Usage
 =====
 
-### This recipe automatically copies the examples yaml templates into /etc/sputnik, then processes them
+### sputnik::from_yaml_example automatically copies the examples yaml templates into /etc/sputnik, then processes them
 
 ```
 chef-solo -o sputnik::from_yaml_example
 ```
 
-### This is the examples of a recipe that sets up the profile attributes directly
+### sputnik::hippiehacker is an example of a recipe that sets up the profile attributes directly
 
 ```
 chef-solo -o sputnik::hippiehacker
 ```
 
-### You could easily just run the default recipe and feed it your own json file attributes
+### You could easily just run the default recipe and feed it your own json file attributes, or use a role etc
 
 ```
 chef-solo -o sputnik -j dna/my-dna.json
