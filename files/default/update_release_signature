@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# cd to the directory this file exists in
+mydir=$(dirname $(readlink -f $0))
+cd $mydir
+
+dpkg-scanpackages . /dev/null > Packages
+cat > Release <<EOF
+Archive: precise
+Origin: Ubuntu
+Label: Local Ubuntu Precise Sputnik Repository
+Architecture: amd64
+MD5Sum:
+EOF
+printf ' '$(md5sum Packages | cut --delimiter=' ' --fields=1)' %16d Packages\n' \
+   $(wc --bytes Packages | cut --delimiter=' ' --fields=1) >> Release
+#printf ' '$(md5sum Packages.gz | cut --delimiter=' ' --fields=1)' %16d Packages.gz' \
+#   $(wc --bytes Packages.gz | cut --delimiter=' ' --fields=1) >> Release
+gpg --armor --detach-sign --output Release.gpg --yes Release
