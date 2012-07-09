@@ -1,8 +1,18 @@
 Description
 ===========
 
+
 This is a base cookbook for applying sputik developer profiles and
 repositiories onto a Ubuntu 12.04 system.
+
+Includes [a very simple recipe](https://github.com/sputnik/cookbook/blob/master/recipes/default.rb) that doesn't use any external attributes, yaml, json, etc to demonstrate simple usage of the [sputnik::default](https://github.com/hh-cookbooks/sputnik/blob/master/recipes/default.rb) recipe.
+
+If you want to go the yaml route, check out the [sputnik::from_yaml_example](https://github.com/hh-cookbooks/sputnik/blob/master/recipes/from_yaml_example.rb) recipe, which will copy [all these files](https://github.com/hh-cookbooks/sputnik/tree/master/files/default/sputik_example_profiles) to /etc/sputnik and includes the [sputnik::from_yaml](https://github.com/hh-cookbooks/sputnik/blob/master/recipes/from_yaml.rb) recipe which processes /etc/sputnik/*yml (files can be copied in manually instead)
+
+The result is a [local repo](https://github.com/sputnik/cookbook/blob/master/recipes/repo.rb) that contains our [MetaPackage}(https://help.ubuntu.com/community/MetaPackages) like profiles, though I've also [pushed profiles](https://github.com/hh-cookbooks/sputnik/blob/master/providers/metapackage.rb#L34) to my own ppa.
+
+Dependent PPAs and debian-seeds via the yaml/attributes could be forthcoming.
+
 
 
 The default recipe loops through the profile under the:
