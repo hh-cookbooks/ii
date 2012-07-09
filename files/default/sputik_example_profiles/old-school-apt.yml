@@ -1,0 +1,5 @@
+name: old-school-apt
+packages:
+- synaptic
+- aptitude
+- dselect
