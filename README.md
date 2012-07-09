@@ -2,7 +2,7 @@ Description
 ===========
 
 
-This is a base cookbook for applying sputik developer profiles and
+This is a base cookbook for applying sputnik developer profiles and
 repositiories onto a Ubuntu 12.04 system.
 
 Includes [a very simple recipe](https://github.com/hh-cookbooks/sputnik/blob/master/recipes/default.rb) that doesn't use any external attributes, yaml, json, etc to demonstrate simple usage of the [sputnik::default](https://github.com/hh-cookbooks/sputnik/blob/master/recipes/default.rb) recipe.
