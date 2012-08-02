@@ -1,27 +1,27 @@
 action :create do
 
-  targetdir=::File.join(node.sputnik.repodir, "#{nr.name}-#{nr.version}")
+  targetdir=::File.join(node.ii.repodir, "#{nr.name}-#{nr.version}")
   directory "#{targetdir}/debian" do
     recursive true
   end
   cookbook_file "#{targetdir}/debian/rules"
   cookbook_file "#{targetdir}/debian/compat"
   template "#{targetdir}/debian/control" do
-    cookbook 'sputnik'
+    cookbook 'ii'
     source "control.erb"
     variables(
       :name => nr.name,
       :depends => nr.depends,
-      :maintainer => node.sputnik.maintainer
+      :maintainer => node.ii.maintainer
     )
   end
   template "#{targetdir}/debian/changelog" do
-    cookbook 'sputnik'
+    cookbook 'ii'
     source "changelog.erb"
     variables(
       :name => nr.name,
       :version => nr.version, 
-      :maintainer => node.sputnik.maintainer
+      :maintainer => node.ii.maintainer
     )
   end
 
@@ -38,7 +38,7 @@ action :create do
   # end
 
   # # upload to ppa?
-  # execute "dput ppa:hippiehacker/sputnik ../#{nr.name}_#{nr.version}_source.changes" do
+  # execute "dput ppa:hippiehacker/ii ../#{nr.name}_#{nr.version}_source.changes" do
   #   cwd targetdir
   # end
 
@@ -51,11 +51,11 @@ action :create do
   #   source "equivs.erb"
   #   variables(
   #     :name => nr.name,
-  #     :maintainer => node.sputnik.maintainer
+  #     :maintainer => node.ii.maintainer
   #   )
   # end
   # execute "equivs-build #{nr.name}" do
-  #   cwd node.sputnik.output_dir
+  #   cwd node.ii.output_dir
   # end
 end
 

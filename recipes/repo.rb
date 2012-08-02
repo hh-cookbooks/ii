@@ -1,10 +1,10 @@
-file '/etc/apt/sources.list.d/sputnik-local.list' do
-  content "deb file:#{node.sputnik.repodir} ./"
+file '/etc/apt/sources.list.d/ii-local.list' do
+  content "deb file:#{node.ii.repodir} ./"
 end
 
-directory node.sputnik.repodir
+directory node.ii.repodir
 
-cookbook_file "#{node.sputnik.repodir}/update_release_signature" do
+cookbook_file "#{node.ii.repodir}/update_release_signature" do
   mode '755'
 end
 

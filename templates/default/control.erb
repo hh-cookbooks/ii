@@ -2,7 +2,7 @@ Source: <%= @name %>
 Section: devel
 Priority: optional
 Maintainer: <%= @maintainer %> 
-Homepage: http://en.community.dell.com/techcenter/os-applications/w/wiki/3688.feedback-on-sputnik.aspx
+Homepage: http://instantinfrastructure.org
 Standards-Version: 3.9.2
 Build-Depends: debhelper
 
@@ -24,7 +24,7 @@ Depends: <%= @depends.join ',' %>
 # Extra-Files: <comma-separated list of additional files for the doc directory>
 # Files: <pair of space-separated paths; First is file to include, second is destination>
 #  <more pairs, if there's more than one file to include. Notice the starting space>
-Description: This sputnik profile will install the following packages:
+Description: This :ii profile will install the following packages:
  <%= @depends.join ',' %>
  .
  More Awesomeness to come.

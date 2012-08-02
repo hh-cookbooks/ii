@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: sputnik
+# Cookbook Name:: ii
 # Recipe:: chris
 #
 # Copyright 2012, Chris McClimans
@@ -7,7 +7,7 @@
 
 # This is a set of example profiles with just packages
 
-node.set['sputnik']['profiles']['chris-virt']['packages'] = [
+node.set['ii']['profiles']['chris-virt']['packages'] = [
   'virtinst',
   'virt-manager',
   'virt-viewer',
@@ -15,7 +15,7 @@ node.set['sputnik']['profiles']['chris-virt']['packages'] = [
   'virtualbox-guest-additions-iso'
 ]
 
-node.set['sputnik']['profiles']['chris-emacs']['packages']= [
+node.set['ii']['profiles']['chris-emacs']['packages']= [
   'emacs',
   'emacs-goodies-el',
   'devscripts-el',
@@ -26,14 +26,14 @@ node.set['sputnik']['profiles']['chris-emacs']['packages']= [
   'emacs-jabber'
 ]
 
-node.set['sputnik']['profiles']['chris-erlang']['packages']= [
+node.set['ii']['profiles']['chris-erlang']['packages']= [
   'sputnick-chris-emacs',
   'erlang'
 ]
 
-node.set['sputnik']['profiles']['chris-android']['packages']= [
+node.set['ii']['profiles']['chris-android']['packages']= [
   'sputnick-chris-emacs',
   'eclipse'
 ]
 
-include_recipe 'sputnik::default'
+include_recipe 'ii::default'

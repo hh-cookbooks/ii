@@ -8,7 +8,7 @@ dpkg-scanpackages . /dev/null > Packages
 cat > Release <<EOF
 Archive: precise
 Origin: Ubuntu
-Label: Local Ubuntu Precise Sputnik Repository
+Label: Local Ubuntu Precise :ii Repository
 Architecture: amd64
 MD5Sum:
 EOF
