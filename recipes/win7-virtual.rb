@@ -1,5 +1,5 @@
 require 'etc'
-include_recipe 'ruby::1.9.1'
+include_recipe 'ruby::1.9.1' # needed to give us a system ruby that we can install veewee into 8)
 
 package 'virtualbox'
 package 'default-jre-headless' # needed to create the Autounattend.xml floppy
@@ -67,7 +67,7 @@ template "#{desktop}/build-#{vagrant_basebox}.desktop" do
   group Etc.getgrgid(iiuser.gid).name
   variables ({
       :base_dir => File.join(iiuser.dir,'VirtualBox VMs'),
-      :computer_name => vagrant_basebox
+      :computer_name => "#{iiuser.name}+vwin7"
     })
   mode '0755'
 end

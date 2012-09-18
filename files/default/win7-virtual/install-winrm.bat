@@ -12,3 +12,8 @@ cmd /c net start winrm
 
 cmd /c reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveActive /t REG_SZ /d 0 /f
 cmd /c reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveIsSecure /t REG_SZ /d 0 /f
+
+REM Time must be set correctly
+cmd /c reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Config" /v MaxNegPhaseCorrection /t REG_DWORD /d 0xffffffff /f
+cmd /c reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Config" /v MaxPosPhaseCorrection /t REG_DWORD /d 0xffffffff /f
+cmd /c w32tm.exe /resync
