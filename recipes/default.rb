@@ -8,6 +8,8 @@
 include_recipe 'ii::repo'
 include_recipe 'ii::_repo_gpg'
 
+package 'debhelper'
+
 node.ii.profiles.each do |pname, profile|
   log "creating metapackage ii-profile-#{pname}:#{profile['packages']}"
 
@@ -24,7 +26,8 @@ execute "apt-get update"
 node.ii.profiles.each do |pname, profile|
   log "installing ii-profile-#{pname}"
   package "ii-profile-#{pname}" do
-    action :nothing # we won't instnall yet, go look it aptitude
+    action :install # yea, we finnaly got around to installing
+    #action :nothing # we won't instnall yet, go look it aptitude
   end
 end
 

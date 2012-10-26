@@ -21,7 +21,7 @@ action :create do
     variables(
       :name => nr.name,
       :version => nr.version, 
-      :maintainer => node.ii.maintainer
+      :maintainer => "#{node.ii.maintainer} <#{node.ii.maintainer_email}>"
     )
   end
 
